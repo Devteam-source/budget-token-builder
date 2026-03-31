@@ -155,17 +155,8 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
               </div>
               <button onClick={onClose} className="text-slate-400 hover:text-white"><X className="h-6 w-6" /></button>
             </div>
-            <nav className="p-4 space-y-2">
-              {menuItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button key={item.id} onClick={() => { setActiveTab(item.id); onClose(); }} className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-base font-medium transition-all ${activeTab === item.id ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/20' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'}`}>
-                    <Icon className="h-6 w-6" /><span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </nav>
-            <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 p-4">
+            {/* Wallet Info - Top */}
+            <div className="p-4 border-b border-white/10">
               <div className="flex items-center gap-3 rounded-xl bg-white/5 p-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600">
                   <User className="h-5 w-5 text-white" />
@@ -176,6 +167,16 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
                 </div>
               </div>
             </div>
+            <nav className="p-4 space-y-2">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button key={item.id} onClick={() => { setActiveTab(item.id); onClose(); }} className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-base font-medium transition-all ${activeTab === item.id ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/20' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'}`}>
+                    <Icon className="h-6 w-6" /><span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
           </motion.div>
         </>
       )}
