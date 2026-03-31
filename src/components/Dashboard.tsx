@@ -718,7 +718,24 @@ const DetailsPageContent = () => (
           </div>
         </div>
         <div>
-          <h4 className="mb-3 text-sm font-semibold text-white">Recent Activity</h4>
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-semibold text-white">Recent Activity</h4>
+            <button 
+              onClick={() => {
+                const csv = 'Type,Amount,Time\n' + recentTransactions.map(tx => `${tx.type},${tx.amount},${tx.time}`).join('\n');
+                const blob = new Blob([csv], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'transactions.csv';
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1.5 text-[10px] font-bold text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all"
+            >
+              <Download className="h-3 w-3" /> Export All
+            </button>
+          </div>
           <div className="space-y-2">
             {recentTransactions.slice(0, 3).map((tx) => (
               <div key={tx.id} className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] p-3">
