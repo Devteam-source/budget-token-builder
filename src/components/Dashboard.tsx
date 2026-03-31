@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Wallet, ArrowUpRight, ArrowDownLeft, Users, TrendingUp, Share2, Clock, X,
+  Wallet, ArrowUpRight, ArrowDownLeft, Users, TrendingUp, Share2, Clock, X, Download,
   BookOpen, Layers, User, Send, Gift, CheckCircle, ChevronRight, ChevronDown, ChevronUp,
   Info, AlertCircle, Flame, Crown, Gem, Award, Medal, Trophy, Network, RefreshCw,
   Repeat, BarChart3, Calendar, GraduationCap, Code2, Shield, Brain, Database, Server,
@@ -155,17 +155,8 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
               </div>
               <button onClick={onClose} className="text-slate-400 hover:text-white"><X className="h-6 w-6" /></button>
             </div>
-            <nav className="p-4 space-y-2">
-              {menuItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button key={item.id} onClick={() => { setActiveTab(item.id); onClose(); }} className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-base font-medium transition-all ${activeTab === item.id ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/20' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'}`}>
-                    <Icon className="h-6 w-6" /><span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </nav>
-            <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 p-4">
+            {/* Wallet Info - Top */}
+            <div className="p-4 border-b border-white/10">
               <div className="flex items-center gap-3 rounded-xl bg-white/5 p-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600">
                   <User className="h-5 w-5 text-white" />
@@ -176,6 +167,16 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
                 </div>
               </div>
             </div>
+            <nav className="p-4 space-y-2">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button key={item.id} onClick={() => { setActiveTab(item.id); onClose(); }} className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-base font-medium transition-all ${activeTab === item.id ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/20' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'}`}>
+                    <Icon className="h-6 w-6" /><span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
           </motion.div>
         </>
       )}
@@ -651,8 +652,8 @@ const WithdrawalPageContent = ({ balance }: { balance: number }) => {
 // REFER PAGE CONTENT
 // =============================================
 const ReferPageContent = () => {
-  const code = 'KIMI2026';
-  const link = 'https://app.example.com/ref/KIMI2026';
+  const code = 'EA2026REF';
+  const link = 'https://app.example.com/ref/EA2026REF';
   const copyText = (text: string) => navigator.clipboard.writeText(text);
 
   return (
@@ -717,7 +718,24 @@ const DetailsPageContent = () => (
           </div>
         </div>
         <div>
-          <h4 className="mb-3 text-sm font-semibold text-white">Recent Activity</h4>
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-semibold text-white">Recent Activity</h4>
+            <button 
+              onClick={() => {
+                const csv = 'Type,Amount,Time\n' + recentTransactions.map(tx => `${tx.type},${tx.amount},${tx.time}`).join('\n');
+                const blob = new Blob([csv], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'transactions.csv';
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1.5 text-[10px] font-bold text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all"
+            >
+              <Download className="h-3 w-3" /> Export All
+            </button>
+          </div>
           <div className="space-y-2">
             {recentTransactions.slice(0, 3).map((tx) => (
               <div key={tx.id} className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] p-3">
@@ -850,6 +868,7 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
+              <ReferPageContent />
             </motion.div>
           )}
 

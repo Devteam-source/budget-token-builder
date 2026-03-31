@@ -631,16 +631,6 @@ const CommunityLounge: React.FC = () => {
               <Settings className="h-5 w-5" />
             </button>
           )}
-          {selectedDM && (
-            <>
-              <button className="rounded-xl p-2.5 hover:bg-white/10 hover:text-white transition-colors" style={{ color: '#94a3b8' }}>
-                <Phone className="h-5 w-5" />
-              </button>
-              <button className="rounded-xl p-2.5 hover:bg-white/10 hover:text-white transition-colors" style={{ color: '#94a3b8' }}>
-                <Video className="h-5 w-5" />
-              </button>
-            </>
-          )}
         </div>
       </div>
 

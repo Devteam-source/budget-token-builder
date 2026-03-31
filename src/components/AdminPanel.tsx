@@ -464,7 +464,7 @@ function Sidebar({ activeTab, setActiveTab, collapsed, setCollapsed, mobileOpen,
     { id: 'withdrawals', label: 'Withdrawals', icon: ArrowUpRight },
     { id: 'flushouts', label: 'Flushouts', icon: Flame },
     { id: 'commissions', label: 'Commissions', icon: Percent },
-    { id: 'kimi', label: 'KIMI Levels', icon: Trophy },
+    
     { id: 'rewards', label: 'Rewards', icon: Gift },
     { id: 'daily-income', label: 'Daily Income', icon: Calendar },
     { id: 'security', label: 'Security Logs', icon: Shield },
@@ -501,7 +501,7 @@ function Sidebar({ activeTab, setActiveTab, collapsed, setCollapsed, mobileOpen,
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
               <Crown className="h-5 w-5 text-white" />
             </div>
-            {(!collapsed || mobileOpen) && <span className="text-lg font-bold text-white lg:block">KIMI Admin</span>}
+            {(!collapsed || mobileOpen) && <span className="text-lg font-bold text-white lg:block">Admin Panel</span>}
           </div>
           <button onClick={() => { onMobileClose(); setCollapsed(!collapsed); }} className="text-slate-400 hover:text-white hidden lg:block">
             {collapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
@@ -1994,8 +1994,6 @@ export default function AdminPanel() {
         return <FlushoutsManagement />;
       case 'commissions':
         return <CommissionsManagement />;
-      case 'kimi':
-        return <KIMILevelsManagement />;
       case 'rewards':
         return <RewardsManagement />;
       case 'daily-income':
@@ -2036,7 +2034,7 @@ export default function AdminPanel() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
             <Crown className="h-4 w-4 text-white" />
           </div>
-          <span className="text-sm font-bold text-white">KIMI Admin</span>
+          <span className="text-sm font-bold text-white">Admin Panel</span>
         </div>
         <div className="w-10" />
       </div>
