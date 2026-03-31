@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Wallet, ArrowUpRight, ArrowDownLeft, Users, TrendingUp, Share2, Clock, X,
+  Wallet, ArrowUpRight, ArrowDownLeft, Users, TrendingUp, Share2, Clock, X, Download,
   BookOpen, Layers, User, Send, Gift, CheckCircle, ChevronRight, ChevronDown, ChevronUp,
   Info, AlertCircle, Flame, Crown, Gem, Award, Medal, Trophy, Network, RefreshCw,
   Repeat, BarChart3, Calendar, GraduationCap, Code2, Shield, Brain, Database, Server,
