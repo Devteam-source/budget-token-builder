@@ -501,7 +501,7 @@ function Sidebar({ activeTab, setActiveTab, collapsed, setCollapsed, mobileOpen,
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
               <Crown className="h-5 w-5 text-white" />
             </div>
-            {(!collapsed || mobileOpen) && <span className="text-lg font-bold text-white lg:block">KIMI Admin</span>}
+            {(!collapsed || mobileOpen) && <span className="text-lg font-bold text-white lg:block">Admin Panel</span>}
           </div>
           <button onClick={() => { onMobileClose(); setCollapsed(!collapsed); }} className="text-slate-400 hover:text-white hidden lg:block">
             {collapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
