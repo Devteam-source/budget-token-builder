@@ -652,8 +652,8 @@ const WithdrawalPageContent = ({ balance }: { balance: number }) => {
 // REFER PAGE CONTENT
 // =============================================
 const ReferPageContent = () => {
-  const code = 'KIMI2026';
-  const link = 'https://app.example.com/ref/KIMI2026';
+  const code = 'EA2026REF';
+  const link = 'https://app.example.com/ref/EA2026REF';
   const copyText = (text: string) => navigator.clipboard.writeText(text);
 
   return (
