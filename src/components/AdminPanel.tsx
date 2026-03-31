@@ -464,7 +464,7 @@ function Sidebar({ activeTab, setActiveTab, collapsed, setCollapsed, mobileOpen,
     { id: 'withdrawals', label: 'Withdrawals', icon: ArrowUpRight },
     { id: 'flushouts', label: 'Flushouts', icon: Flame },
     { id: 'commissions', label: 'Commissions', icon: Percent },
-    { id: 'kimi', label: 'KIMI Levels', icon: Trophy },
+    
     { id: 'rewards', label: 'Rewards', icon: Gift },
     { id: 'daily-income', label: 'Daily Income', icon: Calendar },
     { id: 'security', label: 'Security Logs', icon: Shield },
