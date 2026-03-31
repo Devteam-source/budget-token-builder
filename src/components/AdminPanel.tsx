@@ -1994,8 +1994,6 @@ export default function AdminPanel() {
         return <FlushoutsManagement />;
       case 'commissions':
         return <CommissionsManagement />;
-      case 'kimi':
-        return <KIMILevelsManagement />;
       case 'rewards':
         return <RewardsManagement />;
       case 'daily-income':
