@@ -2034,7 +2034,7 @@ export default function AdminPanel() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
             <Crown className="h-4 w-4 text-white" />
           </div>
-          <span className="text-sm font-bold text-white">KIMI Admin</span>
+          <span className="text-sm font-bold text-white">Admin Panel</span>
         </div>
         <div className="w-10" />
       </div>
