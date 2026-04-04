@@ -809,7 +809,7 @@ const ReferralNetworkCard = () => {
 const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => {
   const menuItems = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-    { id: 'plans', label: 'Courses', icon: Layers }, // Changed from Plans to Courses
+    { id: 'plans', label: 'Plans', icon: Layers },
     { id: 'network', label: 'Network', icon: Network },
     { id: 'rewards', label: 'Rewards', icon: Gift },
   ];
@@ -1293,7 +1293,7 @@ const Dashboard = () => {
                 <button onClick={() => setActiveTab('plans')} 
                   className="flex flex-col items-center gap-1.5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 py-3 text-xs text-yellow-200 hover:bg-yellow-500/20">
                   <Layers className="h-5 w-5 text-yellow-400" />
-                  <span className="font-bold">Courses</span>
+                  <span className="font-bold">Plans</span>
                 </button>
                 <button onClick={() => setSubView('details')} 
                   className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20">
@@ -1305,9 +1305,10 @@ const Dashboard = () => {
                   <ArrowUpRight className="h-5 w-5 text-cyan-400" />
                   <span>Withdrawal</span>
                 </button>
-                <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20">
-                  <GraduationCap className="h-5 w-5 text-emerald-400" />
-                  <span className="font-bold">Courses</span>
+                <button onClick={() => setSubView('refer')}
+                  className="flex flex-col items-center gap-1.5 rounded-xl border border-purple-500/30 bg-purple-500/10 py-3 text-xs text-purple-200 hover:bg-purple-500/20">
+                  <Share2 className="h-5 w-5 text-purple-400" />
+                  <span className="font-bold">Refer</span>
                 </button>
               </div>
 
