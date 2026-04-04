@@ -259,7 +259,6 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
                 <p className="text-[10px] text-slate-500">Fee Distribution</p>
                 <div className="space-y-1">
                   <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">Upline</span><span className="text-xs font-semibold">${plan.uplineCommission}</span></div>
-                  <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">System</span><span className="text-xs font-semibold">${plan.systemFee}</span></div>
                   <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">Level (10%)</span><span className="text-xs font-semibold">${plan.levelCommission}</span></div>
                 </div>
               </div>
