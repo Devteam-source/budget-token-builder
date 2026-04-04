@@ -88,7 +88,7 @@ export const skillLevels = [
   { level: 2, name: 'Frontend Craftsman', title: 'Intermediate', skills: ['React.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'APIs'], icon: Code2, theme: { primary: '#22d3ee', bgGlow: 'rgba(34, 211, 238, 0.15)' } },
   { level: 3, name: 'Backend Architect', title: 'Advanced', skills: ['Node.js', 'Database Design', 'REST APIs', 'Auth & Security', 'Cloud'], icon: Server, theme: { primary: '#34d399', bgGlow: 'rgba(52, 211, 153, 0.15)' } },
   { level: 4, name: 'Security Guardian', title: 'Expert', skills: ['Ethical Hacking', 'Network Security', 'Pen Testing', 'Web Security', 'Vuln Assessment'], icon: Shield, theme: { primary: '#e879f9', bgGlow: 'rgba(232, 121, 249, 0.15)' } },
-  { level: 5, name: 'AI & ML Engineer', title: 'Master', skills: ['ML Algorithms', 'Deep Learning', 'Data Analysis', 'Neural Networks', 'AI Deployment'], icon: Brain, theme: { primary: '#f472b6', bgGlow: 'rgba(244, 114, 182, 0.15)' } },
+  { level: 5, name: 'AI & ML Engineer', title: 'Master', skills: ['ML Algorithms', 'Deep Learning', 'Data Analysis', 'Neural Networks', 'AI Deployment'], icon: Brain, theme: { primary: '#f97316', bgGlow: 'rgba(249, 115, 22, 0.15)' } },
   { level: 6, name: 'Blockchain Pioneer', title: 'Grandmaster', skills: ['Smart Contracts', 'Web3 & dApps', 'DeFi', 'NFTs', 'Layer 2'], icon: Database, theme: { primary: '#fb7185', bgGlow: 'rgba(251, 113, 133, 0.15)' } },
   { level: 7, name: 'Full-Stack Visionary', title: 'Legend', skills: ['System Architecture', 'DevOps', 'Microservices', 'Scalable Systems', 'Leadership'], icon: Crown, theme: { primary: '#a78bfa', bgGlow: 'rgba(167, 139, 250, 0.15)' } },
 ];
