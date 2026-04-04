@@ -23,7 +23,7 @@ const InternalHeader: React.FC<InternalHeaderProps> = ({ onToggleSidebar, sideba
       >
         {/* Left: hamburger menu */}
         <button onClick={onToggleSidebar} className="p-2.5 rounded-lg hover:bg-white/10 transition-colors">
-          {sidebarOpen ? <ChevronLeft className="w-6 h-6 text-slate-300" /> : <Menu className="w-6 h-6 text-slate-300" />}
+          {sidebarOpen ? <X className="w-6 h-6 text-slate-300" /> : <Menu className="w-6 h-6 text-slate-300" />}
         </button>
 
         {/* Right: notification bell */}
