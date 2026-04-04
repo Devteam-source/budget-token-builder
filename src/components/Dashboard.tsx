@@ -243,11 +243,11 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
         </div>
         <div className="flex items-end gap-2 mb-4">
           <p className="text-3xl sm:text-5xl font-bold" style={{ color: plan.theme.text, textShadow: `0 0 20px ${plan.theme.glow}` }}>${plan.joiningFee}</p>
-          <span className="pb-1 text-xs sm:text-sm text-slate-400">Joining Fee</span>
+          <span className="pb-1 text-xs sm:text-sm text-slate-400">Enrollment Fee</span>
         </div>
         <div className="mb-4 grid grid-cols-2 gap-2">
-          <div className="rounded-lg border border-white/5 bg-white/[0.03] p-2.5"><p className="text-[9px] text-slate-500">Member Profit</p><p className="text-base font-bold" style={{ color: plan.theme.text }}>${plan.memberProfit}</p></div>
-          <div className="rounded-lg border border-white/5 bg-white/[0.03] p-2.5"><p className="text-[9px] text-slate-500">Flush Out</p><p className="text-base font-bold text-slate-200">{plan.flushoutDays} Days</p></div>
+          <div className="rounded-lg border border-white/5 bg-white/[0.03] p-2.5"><p className="text-[9px] text-slate-500">Total Earning</p><p className="text-base font-bold" style={{ color: plan.theme.text }}>${plan.memberProfit}</p></div>
+          <div className="rounded-lg border border-white/5 bg-white/[0.03] p-2.5"><p className="text-[9px] text-slate-500">Guaranteed Flushout</p><p className="text-base font-bold text-slate-200">{plan.flushoutDays} Days</p></div>
         </div>
         <button onClick={() => setShowDetails(!showDetails)} className="mb-3 flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-semibold text-slate-400 hover:bg-white/[0.06]">
           {showDetails ? <><ChevronUp className="h-4 w-4" /> Hide</> : <><ChevronDown className="h-4 w-4" /> Details</>}
@@ -259,14 +259,13 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
                 <p className="text-[10px] text-slate-500">Fee Distribution</p>
                 <div className="space-y-1">
                   <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">Upline</span><span className="text-xs font-semibold">${plan.uplineCommission}</span></div>
-                  <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">System</span><span className="text-xs font-semibold">${plan.systemFee}</span></div>
                   <div className="flex justify-between rounded-lg bg-white/[0.02] px-2.5 py-1.5"><span className="text-xs text-slate-400">Level (10%)</span><span className="text-xs font-semibold">${plan.levelCommission}</span></div>
                 </div>
               </div>
               <div className="mb-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                <p className="mb-2 text-[10px] text-slate-500">Flushout Distribution</p>
+                <p className="mb-2 text-[10px] text-slate-500">Guaranteed Flushout Distribution</p>
                 <div className="space-y-1 text-xs">
-                  <div className="flex justify-between"><span className="text-slate-400">Member Profit</span><span className="text-emerald-400">${plan.memberProfit}</span></div>
+                  <div className="flex justify-between"><span className="text-slate-400">Total Earning</span><span className="text-emerald-400">${plan.memberProfit}</span></div>
                   <div className="flex justify-between"><span className="text-slate-400">Leader Pool</span><span className="text-amber-400">${plan.leaderPool}</span></div>
                   <div className="flex justify-between"><span className="text-slate-400">Reward Pool</span><span className="text-purple-400">${plan.rewardPool}</span></div>
                   {plan.sponsorPool > 0 && <div className="flex justify-between"><span className="text-slate-400">Sponsor Pool</span><span className="text-cyan-400">${plan.sponsorPool}</span></div>}
@@ -276,7 +275,7 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
           )}
         </AnimatePresence>
         <button onClick={() => onSelect?.(plan)} className="w-full rounded-xl py-3.5 text-sm font-bold" style={{ background: `linear-gradient(135deg, ${plan.theme.primary}, ${plan.theme.secondary})`, boxShadow: `0 4px 15px ${plan.theme.glow}` }}>
-          <span className="flex items-center justify-center gap-2 text-slate-900"><ArrowDownLeft className="h-4 w-4" />Join ${plan.joiningFee}</span>
+          <span className="flex items-center justify-center gap-2 text-slate-900"><ArrowDownLeft className="h-4 w-4" />Enroll Now ${plan.joiningFee}</span>
         </button>
       </div>
     </motion.div>
@@ -491,7 +490,7 @@ const FlushoutScheduleCard = () => (
         <Calendar className="h-5 w-5 sm:h-7 sm:w-7 text-blue-300" />
       </div>
       <div>
-        <p className="text-[10px] text-blue-300">Guaranteed Flushout</p>
+        <p className="text-[10px] text-blue-300">Guaranteed Flushout Schedule</p>
         <h3 className="text-lg sm:text-2xl font-bold text-white">Flushout Schedule</h3>
         <p className="text-xs text-slate-400">System-Guaranteed Maturity</p>
       </div>
@@ -840,9 +839,9 @@ const Dashboard = () => {
               </div>
               {/* Action Buttons */}
               <div className="grid grid-cols-4 gap-2">
+                <button onClick={() => setActiveTab('plans')} className="flex flex-col items-center gap-1.5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 py-3 text-xs text-yellow-200 hover:bg-yellow-500/20"><Layers className="h-5 w-5 text-yellow-400" /><span className="font-bold">Plans</span></button>
                 <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20"><Info className="h-5 w-5 text-amber-400" /><span className="font-bold">Portfolio</span></button>
                 <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-600/30 bg-blue-900/40 py-3 text-xs text-slate-300 hover:bg-blue-800/50"><ArrowUpRight className="h-5 w-5 text-cyan-400" /><span>Withdrawal</span></button>
-                <button onClick={() => setSubView('refer')} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 py-3 text-xs text-slate-300 hover:bg-white/10"><Share2 className="h-5 w-5 text-purple-400" /><span>Refer</span></button>
                 <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20"><GraduationCap className="h-5 w-5 text-emerald-400" /><span className="font-bold">Courses</span></button>
               </div>
               {/* PROMO Banner */}
@@ -870,7 +869,7 @@ const Dashboard = () => {
 
           {activeTab === 'plans' && (
             <motion.div key="plans" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-4">
-              <div><h1 className="text-xl font-bold text-white">Investment Plans</h1><p className="text-xs text-slate-400">Choose a plan that fits your goals</p></div>
+              <div><h1 className="text-xl font-bold text-white">Earning & Learning Programs</h1><p className="text-xs text-slate-400">Choose a program that fits your goals</p></div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">{plansData.map((plan, i) => <PremiumPlanCard key={plan.level} plan={plan} index={i} />)}</div>
               <FlushoutScheduleCard />
             </motion.div>
