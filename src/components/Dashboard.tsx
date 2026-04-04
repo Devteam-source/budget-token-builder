@@ -809,7 +809,7 @@ const ReferralNetworkCard = () => {
 const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => {
   const menuItems = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-    { id: 'plans', label: 'Courses', icon: Layers }, // Changed from Plans to Courses
+    { id: 'plans', label: 'Plans', icon: Layers },
     { id: 'network', label: 'Network', icon: Network },
     { id: 'rewards', label: 'Rewards', icon: Gift },
   ];
