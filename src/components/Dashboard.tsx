@@ -523,7 +523,7 @@ const PoolStatsCard = () => {
     { label: 'Leader Pool', value: '$2,180', subtext: 'Plan 1-6', icon: Crown, color: '#fbbf24' },
     { label: 'Reward Pool', value: '$1,450', subtext: 'Plan 1-6', icon: Gem, color: '#22d3ee' },
     { label: 'Sponsor Pool', value: '$320', subtext: 'Plan 4-6', icon: Award, color: '#34d399' },
-    { label: 'Auto Fill', value: '142', subtext: 'Nodes', icon: Network, color: '#e879f9' },
+    { label: 'Auto Fill', value: '142', subtext: 'Total Participants', icon: Network, color: '#e879f9' },
   ];
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(6,182,212,0.2)', background: 'linear-gradient(135deg, rgba(6,182,212,0.06) 0%, rgba(59,130,246,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
