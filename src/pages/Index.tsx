@@ -19,9 +19,13 @@ const panelVariants = {
   exit: { opacity: 0, y: -8, transition: { duration: 0.12 } },
 };
 
-const Index: React.FC = () => {
+interface IndexProps {
+  adminMode?: boolean;
+}
+
+const Index: React.FC<IndexProps> = ({ adminMode = false }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activePanel, setActivePanel] = useState<PanelId>('dashboard');
+  const [activePanel, setActivePanel] = useState<PanelId>(adminMode ? 'admin' : 'dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const isMobile = useIsMobile();
 
