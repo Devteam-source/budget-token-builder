@@ -243,7 +243,7 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
         </div>
         <div className="flex items-end gap-2 mb-4">
           <p className="text-3xl sm:text-5xl font-bold" style={{ color: plan.theme.text, textShadow: `0 0 20px ${plan.theme.glow}` }}>${plan.joiningFee}</p>
-          <span className="pb-1 text-xs sm:text-sm text-slate-400">Joining Fee</span>
+          <span className="pb-1 text-xs sm:text-sm text-slate-400">Enrollment Fee</span>
         </div>
         <div className="mb-4 grid grid-cols-2 gap-2">
           <div className="rounded-lg border border-white/5 bg-white/[0.03] p-2.5"><p className="text-[9px] text-slate-500">Member Profit</p><p className="text-base font-bold" style={{ color: plan.theme.text }}>${plan.memberProfit}</p></div>
