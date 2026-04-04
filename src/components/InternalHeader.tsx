@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bell, ChevronLeft, Menu } from 'lucide-react';
+import { Bell, X, Menu } from 'lucide-react';
 import NotificationPanel from '@/components/NotificationPanel';
 
 interface InternalHeaderProps {
