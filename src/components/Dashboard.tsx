@@ -151,7 +151,7 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
                   <Crown className="h-5 w-5 text-white" />
                 </div>
-                <span className="text-lg font-bold text-white">Dashboard</span>
+                <span className="text-lg font-bold text-white">EARN</span>
               </div>
               <button onClick={onClose} className="text-slate-400 hover:text-white"><X className="h-6 w-6" /></button>
             </div>
