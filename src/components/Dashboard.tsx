@@ -275,7 +275,7 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
           )}
         </AnimatePresence>
         <button onClick={() => onSelect?.(plan)} className="w-full rounded-xl py-3.5 text-sm font-bold" style={{ background: `linear-gradient(135deg, ${plan.theme.primary}, ${plan.theme.secondary})`, boxShadow: `0 4px 15px ${plan.theme.glow}` }}>
-          <span className="flex items-center justify-center gap-2 text-slate-900"><ArrowDownLeft className="h-4 w-4" />Join ${plan.joiningFee}</span>
+          <span className="flex items-center justify-center gap-2 text-slate-900"><ArrowDownLeft className="h-4 w-4" />Enroll Now ${plan.joiningFee}</span>
         </button>
       </div>
     </motion.div>
