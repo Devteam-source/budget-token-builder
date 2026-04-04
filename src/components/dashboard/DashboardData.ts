@@ -47,10 +47,12 @@ export const recentTransactions = [
 ];
 
 export const planBadges = [
-  { name: 'Plan 1', price: '$7', active: true, color: '#fbbf24' },
-  { name: 'Plan 2', price: '$14', active: false, color: '#22d3ee' },
-  { name: 'Plan 3', price: '$40', active: false, color: '#34d399' },
-  { name: 'Plan 4', price: '$150', active: false, color: '#e879f9' },
+  { name: 'Plan 1', price: '$5', active: true, color: '#fbbf24' },
+  { name: 'Plan 2', price: '$10', active: false, color: '#22d3ee' },
+  { name: 'Plan 3', price: '$20', active: false, color: '#34d399' },
+  { name: 'Plan 4', price: '$40', active: false, color: '#e879f9' },
+  { name: 'Plan 5', price: '$80', active: false, color: '#f97316' },
+  { name: 'Plan 6', price: '$160', active: false, color: '#6366f1' },
 ];
 
 export const depositPlans = [
