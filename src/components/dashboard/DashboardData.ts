@@ -136,7 +136,7 @@ export const poolStats = [
   },
   { 
     label: 'Auto Filling Tree', 
-    value: '142 Nodes', 
+    value: '142 Total Participants', 
     subtext: 'Network growth',
     icon: Network, 
     theme: {
