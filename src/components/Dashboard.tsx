@@ -490,7 +490,7 @@ const FlushoutScheduleCard = () => (
         <Calendar className="h-5 w-5 sm:h-7 sm:w-7 text-blue-300" />
       </div>
       <div>
-        <p className="text-[10px] text-blue-300">Guaranteed Flushout</p>
+        <p className="text-[10px] text-blue-300">Guaranteed Flushout Schedule</p>
         <h3 className="text-lg sm:text-2xl font-bold text-white">Flushout Schedule</h3>
         <p className="text-xs text-slate-400">System-Guaranteed Maturity</p>
       </div>
