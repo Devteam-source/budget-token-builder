@@ -16,8 +16,8 @@ const skillLevels = [
   { id: 'pro-builder', name: 'Pro Builder', icon: Code2, color: '#22d3ee', gradient: 'from-cyan-400 to-blue-500', bg: 'bg-cyan-500/15', border: 'border-cyan-400/40', text: 'text-cyan-400', btnGrad: 'from-cyan-500 to-blue-500' },
   { id: 'cyber-elite', name: 'Cyber Elite', icon: Shield, color: '#34d399', gradient: 'from-emerald-400 to-green-500', bg: 'bg-emerald-500/15', border: 'border-emerald-400/40', text: 'text-emerald-400', btnGrad: 'from-emerald-500 to-green-500' },
   { id: 'ai-mastery', name: 'AI Mastery', icon: Brain, color: '#e879f9', gradient: 'from-fuchsia-400 to-purple-500', bg: 'bg-fuchsia-500/15', border: 'border-fuchsia-400/40', text: 'text-fuchsia-400', btnGrad: 'from-fuchsia-500 to-purple-500' },
-  { id: 'quantum-leader', name: 'Quantum Leader', icon: Rocket, color: '#f472b6', gradient: 'from-pink-400 to-rose-500', bg: 'bg-pink-500/15', border: 'border-pink-400/40', text: 'text-pink-400', btnGrad: 'from-pink-500 to-rose-500' },
-  { id: 'supreme-visionary', name: 'Supreme Visionary', icon: Crown, color: '#fb7185', gradient: 'from-rose-400 to-red-500', bg: 'bg-rose-500/15', border: 'border-rose-400/40', text: 'text-rose-400', btnGrad: 'from-rose-500 to-red-500' },
+  { id: 'quantum-leader', name: 'Quantum Leader', icon: Rocket, color: '#f97316', gradient: 'from-orange-400 to-amber-500', bg: 'bg-orange-500/15', border: 'border-orange-400/40', text: 'text-orange-400', btnGrad: 'from-orange-500 to-amber-500' },
+  { id: 'supreme-visionary', name: 'Supreme Visionary', icon: Crown, color: '#6366f1', gradient: 'from-indigo-400 to-violet-500', bg: 'bg-indigo-500/15', border: 'border-indigo-400/40', text: 'text-indigo-400', btnGrad: 'from-indigo-500 to-violet-500' },
 ];
 
 /* ═══════════════════════════════════════════════════════════════ */

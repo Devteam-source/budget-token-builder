@@ -828,13 +828,33 @@ const Dashboard = () => {
             <motion.div key="overview" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-4">
               <div>
                 <h1 className="text-xl font-bold text-white">Welcome Back!</h1>
-                <p className="text-xs text-slate-400">Here's your dashboard overview</p>
+                <p className="text-xs text-slate-400">Dashboard Overview</p>
+                {/* User Profile Info */}
+                <div className="mt-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-white">PK</div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Arushi Tyagi</p>
+                    <p className="text-[10px] font-mono text-slate-400">ID: #EA20264</p>
+                  </div>
+                </div>
               </div>
               {/* Action Buttons */}
-              <div className="grid grid-cols-3 gap-2">
-                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 py-3 text-xs text-slate-300 hover:bg-white/10"><Info className="h-5 w-5 text-amber-400" /><span>Details</span></button>
+              <div className="grid grid-cols-4 gap-2">
+                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20"><Info className="h-5 w-5 text-amber-400" /><span className="font-bold">Portfolio</span></button>
                 <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-600/30 bg-blue-900/40 py-3 text-xs text-slate-300 hover:bg-blue-800/50"><ArrowUpRight className="h-5 w-5 text-cyan-400" /><span>Withdrawal</span></button>
                 <button onClick={() => setSubView('refer')} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 py-3 text-xs text-slate-300 hover:bg-white/10"><Share2 className="h-5 w-5 text-purple-400" /><span>Refer</span></button>
+                <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20"><GraduationCap className="h-5 w-5 text-emerald-400" /><span className="font-bold">Courses</span></button>
+              </div>
+              {/* PROMO Banner */}
+              <div className="rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-purple-400" />
+                  <div>
+                    <p className="text-xs font-bold text-white">PROMO</p>
+                    <p className="text-[10px] text-slate-400">Special offers coming soon</p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Coming Soon</span>
               </div>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <PoolStatsCard />
@@ -844,6 +864,7 @@ const Dashboard = () => {
               <PlanMaturityCard />
               <SkillLevelsCard />
               <ComingSoonCard title="Daily Income Plan" description="Earn Daily Rewards Based on Your Activity" icon={TrendingUp} />
+              <ComingSoonCard title="Earning Workspace" description="Freelance marketplace like Fiverr/Upwork — earn by doing tasks" icon={Layers} />
             </motion.div>
           )}
 
