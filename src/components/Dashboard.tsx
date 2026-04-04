@@ -8,14 +8,16 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, Code2, Shield, Brain, Cpu, Zap, Wand2, Headphones, FileCode,
-  Crown, Gem, BadgeCent, Network, ChevronRight, CheckCircle, Sparkles, 
+  Crown, Gem, BadgeCent, Network, ChevronRight, ChevronDown, ChevronUp, CheckCircle, Sparkles, 
   Users, Gift, Target, TrendingUp, BellRing, Layers, ArrowDownLeft, TimerReset,
   ArrowUpRight, X, Rocket, User, Wallet2, Bot, Send, Check, Camera, Key, Plus, 
   Trash2, Clock, Info, AlertCircle, Flame, Award, Medal, Trophy, RefreshCw,
   Repeat, BarChart3, Calendar, GraduationCap, Database, Server,
-  MessageSquare, Copy, Menu, LayoutDashboard, Download, TrendingUp as TrendIcon,
-  Briefcase, Snapchat, Facebook, Instagram, ArrowLeft, Star
+  MessageSquare, Copy, Menu, LayoutDashboard, Download, Share2,
+  Briefcase, Facebook, Instagram, ArrowLeft, Star
 } from 'lucide-react';
+
+const TrendIcon = TrendingUp;
 
 // =============================================
 // TYPES & INTERFACES
