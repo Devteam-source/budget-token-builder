@@ -782,7 +782,7 @@ const Dashboard = () => {
             </button>
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600"><Crown className="h-4 w-4 text-white" /></div>
-              <span className="text-base font-bold text-white">Dashboard</span>
+              <span className="text-base font-bold text-white">EARN</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2">
               <Wallet className="h-4 w-4 text-cyan-400" /><span className="text-xs font-semibold">${balance.toLocaleString()}</span>
