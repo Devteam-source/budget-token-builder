@@ -105,7 +105,9 @@ const ProfilePanel: React.FC = () => {
               </div>
               
               <div className="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-slate-200">Level 4 Node</span>
+                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-slate-200">Plan 1 Active</span>
+                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-slate-200">Plan 2 Active</span>
+                <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-slate-200">Plan 3 Active</span>
                 <span className="px-2 py-0.5 rounded bg-sky-500/10 border border-sky-400/20 text-[11px] font-semibold text-sky-200">Active Account</span>
               </div>
 

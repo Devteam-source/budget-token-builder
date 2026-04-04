@@ -65,11 +65,11 @@ export const plansData: PlanData[] = [
   },
   {
     level: 5, name: 'Quantum Leader', joiningFee: 80, teamSize: 8, uplineCommission: 14, systemFee: 2, levelCommission: 8, slotFee: 56, totalCollection: 448, memberProfit: 400, leaderPool: 16, rewardPool: 10, sponsorPool: 2, roi: 500, flushoutDays: 40,
-    theme: { primary: '#f472b6', secondary: '#ec4899', glow: 'rgba(244, 114, 182, 0.5)', bgGlow: 'rgba(244, 114, 182, 0.15)', text: '#fce7f3' },
+    theme: { primary: '#f97316', secondary: '#ea580c', glow: 'rgba(249, 115, 22, 0.5)', bgGlow: 'rgba(249, 115, 22, 0.15)', text: '#ffedd5' },
   },
   {
     level: 6, name: 'Supreme Visionary', joiningFee: 160, teamSize: 8, uplineCommission: 32, systemFee: 2, levelCommission: 16, slotFee: 110, totalCollection: 880, memberProfit: 800, leaderPool: 24, rewardPool: 12, sponsorPool: 4, roi: 500, flushoutDays: 60,
-    theme: { primary: '#fb7185', secondary: '#f43f5e', glow: 'rgba(251, 113, 133, 0.5)', bgGlow: 'rgba(251, 113, 133, 0.15)', text: '#ffe4e6' },
+    theme: { primary: '#6366f1', secondary: '#4f46e5', glow: 'rgba(99, 102, 241, 0.5)', bgGlow: 'rgba(99, 102, 241, 0.15)', text: '#e0e7ff' },
   },
 ];
 
@@ -88,8 +88,8 @@ export const skillLevels = [
   { level: 2, name: 'Frontend Craftsman', title: 'Intermediate', skills: ['React.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'APIs'], icon: Code2, theme: { primary: '#22d3ee', bgGlow: 'rgba(34, 211, 238, 0.15)' } },
   { level: 3, name: 'Backend Architect', title: 'Advanced', skills: ['Node.js', 'Database Design', 'REST APIs', 'Auth & Security', 'Cloud'], icon: Server, theme: { primary: '#34d399', bgGlow: 'rgba(52, 211, 153, 0.15)' } },
   { level: 4, name: 'Security Guardian', title: 'Expert', skills: ['Ethical Hacking', 'Network Security', 'Pen Testing', 'Web Security', 'Vuln Assessment'], icon: Shield, theme: { primary: '#e879f9', bgGlow: 'rgba(232, 121, 249, 0.15)' } },
-  { level: 5, name: 'AI & ML Engineer', title: 'Master', skills: ['ML Algorithms', 'Deep Learning', 'Data Analysis', 'Neural Networks', 'AI Deployment'], icon: Brain, theme: { primary: '#f472b6', bgGlow: 'rgba(244, 114, 182, 0.15)' } },
-  { level: 6, name: 'Blockchain Pioneer', title: 'Grandmaster', skills: ['Smart Contracts', 'Web3 & dApps', 'DeFi', 'NFTs', 'Layer 2'], icon: Database, theme: { primary: '#fb7185', bgGlow: 'rgba(251, 113, 133, 0.15)' } },
+  { level: 5, name: 'AI & ML Engineer', title: 'Master', skills: ['ML Algorithms', 'Deep Learning', 'Data Analysis', 'Neural Networks', 'AI Deployment'], icon: Brain, theme: { primary: '#f97316', bgGlow: 'rgba(249, 115, 22, 0.15)' } },
+  { level: 6, name: 'Blockchain Pioneer', title: 'Grandmaster', skills: ['Smart Contracts', 'Web3 & dApps', 'DeFi', 'NFTs', 'Layer 2'], icon: Database, theme: { primary: '#6366f1', bgGlow: 'rgba(99, 102, 241, 0.15)' } },
   { level: 7, name: 'Full-Stack Visionary', title: 'Legend', skills: ['System Architecture', 'DevOps', 'Microservices', 'Scalable Systems', 'Leadership'], icon: Crown, theme: { primary: '#a78bfa', bgGlow: 'rgba(167, 139, 250, 0.15)' } },
 ];
 
@@ -151,7 +151,7 @@ const MobileMenuDrawer = ({ isOpen, onClose, activeTab, setActiveTab }: any) => 
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
                   <Crown className="h-5 w-5 text-white" />
                 </div>
-                <span className="text-lg font-bold text-white">Dashboard</span>
+                <span className="text-lg font-bold text-white">EARN</span>
               </div>
               <button onClick={onClose} className="text-slate-400 hover:text-white"><X className="h-6 w-6" /></button>
             </div>
@@ -523,7 +523,7 @@ const PoolStatsCard = () => {
     { label: 'Leader Pool', value: '$2,180', subtext: 'Plan 1-6', icon: Crown, color: '#fbbf24' },
     { label: 'Reward Pool', value: '$1,450', subtext: 'Plan 1-6', icon: Gem, color: '#22d3ee' },
     { label: 'Sponsor Pool', value: '$320', subtext: 'Plan 4-6', icon: Award, color: '#34d399' },
-    { label: 'Auto Fill', value: '142', subtext: 'Nodes', icon: Network, color: '#e879f9' },
+    { label: 'Auto Fill', value: '142', subtext: 'Total Participants', icon: Network, color: '#e879f9' },
   ];
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(6,182,212,0.2)', background: 'linear-gradient(135deg, rgba(6,182,212,0.06) 0%, rgba(59,130,246,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
@@ -782,7 +782,7 @@ const Dashboard = () => {
             </button>
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600"><Crown className="h-4 w-4 text-white" /></div>
-              <span className="text-base font-bold text-white">Dashboard</span>
+              <span className="text-base font-bold text-white">EARN</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2">
               <Wallet className="h-4 w-4 text-cyan-400" /><span className="text-xs font-semibold">${balance.toLocaleString()}</span>
@@ -805,7 +805,7 @@ const Dashboard = () => {
                 {subView === 'refer' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-500"><Share2 className="h-5 w-5 text-white" /></div>}
                 <div>
                   <h2 className="text-lg font-bold text-white">
-                    {subView === 'details' && 'Account Details'}
+                    {subView === 'details' && 'Portfolio'}
                     {subView === 'withdrawal' && 'Withdraw'}
                     {subView === 'refer' && 'Refer & Earn'}
                   </h2>
@@ -828,13 +828,33 @@ const Dashboard = () => {
             <motion.div key="overview" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-4">
               <div>
                 <h1 className="text-xl font-bold text-white">Welcome Back!</h1>
-                <p className="text-xs text-slate-400">Here's your dashboard overview</p>
+                <p className="text-xs text-slate-400">Dashboard Overview</p>
+                {/* User Profile Info */}
+                <div className="mt-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-white">PK</div>
+                  <div>
+                    <p className="text-sm font-bold text-white">Arushi Tyagi</p>
+                    <p className="text-[10px] font-mono text-slate-400">ID: #EA20264</p>
+                  </div>
+                </div>
               </div>
               {/* Action Buttons */}
-              <div className="grid grid-cols-3 gap-2">
-                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 py-3 text-xs text-slate-300 hover:bg-white/10"><Info className="h-5 w-5 text-amber-400" /><span>Details</span></button>
+              <div className="grid grid-cols-4 gap-2">
+                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20"><Info className="h-5 w-5 text-amber-400" /><span className="font-bold">Portfolio</span></button>
                 <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-600/30 bg-blue-900/40 py-3 text-xs text-slate-300 hover:bg-blue-800/50"><ArrowUpRight className="h-5 w-5 text-cyan-400" /><span>Withdrawal</span></button>
                 <button onClick={() => setSubView('refer')} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 py-3 text-xs text-slate-300 hover:bg-white/10"><Share2 className="h-5 w-5 text-purple-400" /><span>Refer</span></button>
+                <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20"><GraduationCap className="h-5 w-5 text-emerald-400" /><span className="font-bold">Courses</span></button>
+              </div>
+              {/* PROMO Banner */}
+              <div className="rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-purple-400" />
+                  <div>
+                    <p className="text-xs font-bold text-white">PROMO</p>
+                    <p className="text-[10px] text-slate-400">Special offers coming soon</p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Coming Soon</span>
               </div>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <PoolStatsCard />
@@ -844,6 +864,7 @@ const Dashboard = () => {
               <PlanMaturityCard />
               <SkillLevelsCard />
               <ComingSoonCard title="Daily Income Plan" description="Earn Daily Rewards Based on Your Activity" icon={TrendingUp} />
+              <ComingSoonCard title="Earning Workspace" description="Freelance marketplace like Fiverr/Upwork — earn by doing tasks" icon={Layers} />
             </motion.div>
           )}
 
