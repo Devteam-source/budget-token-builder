@@ -10,7 +10,6 @@ import {
 import type { PanelId } from '@/components/BottomNav';
 
 const menuItems: { label: string; icon: React.ElementType; action: string }[] = [
-  { label: 'Admin Panel', icon: Shield, action: 'admin' },
   { label: 'Terms & Conditions', icon: FileText, action: 'terms' },
   { label: 'Privacy & Policy', icon: Globe, action: 'privacy' },
   { label: 'Contact Us', icon: Mail, action: 'contact' },
