@@ -148,10 +148,12 @@ export const poolStats = [
 ];
 
 export const scheduleNotes = [
-  { plan: 'Plan 1', cadence: 'Every 2 days' },
-  { plan: 'Plan 2', cadence: 'Every 7 days' },
-  { plan: 'Plan 3', cadence: 'Every 15 days' },
-  { plan: 'Plan 4', cadence: 'Every 30 days' },
+  { plan: 'Plan 1', cadence: 'Every 3 days' },
+  { plan: 'Plan 2', cadence: 'Every 8 days' },
+  { plan: 'Plan 3', cadence: 'Every 16 days' },
+  { plan: 'Plan 4', cadence: 'Every 25 days' },
+  { plan: 'Plan 5', cadence: 'Every 40 days' },
+  { plan: 'Plan 6', cadence: 'Every 60 days' },
 ];
 
 export const fadeUp = {
