@@ -263,9 +263,9 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
                 </div>
               </div>
               <div className="mb-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                <p className="mb-2 text-[10px] text-slate-500">Flushout Distribution</p>
+                <p className="mb-2 text-[10px] text-slate-500">Guaranteed Flushout Distribution</p>
                 <div className="space-y-1 text-xs">
-                  <div className="flex justify-between"><span className="text-slate-400">Member Profit</span><span className="text-emerald-400">${plan.memberProfit}</span></div>
+                  <div className="flex justify-between"><span className="text-slate-400">Total Earning</span><span className="text-emerald-400">${plan.memberProfit}</span></div>
                   <div className="flex justify-between"><span className="text-slate-400">Leader Pool</span><span className="text-amber-400">${plan.leaderPool}</span></div>
                   <div className="flex justify-between"><span className="text-slate-400">Reward Pool</span><span className="text-purple-400">${plan.rewardPool}</span></div>
                   {plan.sponsorPool > 0 && <div className="flex justify-between"><span className="text-slate-400">Sponsor Pool</span><span className="text-cyan-400">${plan.sponsorPool}</span></div>}
