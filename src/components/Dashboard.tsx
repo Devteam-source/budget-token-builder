@@ -66,11 +66,11 @@ export const plansData: PlanData[] = [
   },
   {
     level: 5, name: 'Quantum Leader', joiningFee: 80, teamSize: 8, uplineCommission: 14, systemFee: 2, levelCommission: 8, slotFee: 56, totalCollection: 448, memberProfit: 400, leaderPool: 16, rewardPool: 10, sponsorPool: 2, roi: 500, flushoutDays: 40,
-    theme: { primary: '#f97316', secondary: '#ea580c', glow: 'rgba(249, 115, 22, 0.5)', bgGlow: 'rgba(249, 115, 22, 0.15)', text: '#ffedd5' },
+    theme: { primary: '#6366f1', secondary: '#4f46e5', glow: 'rgba(99, 102, 241, 0.5)', bgGlow: 'rgba(99, 102, 241, 0.15)', text: '#e0e7ff' },
   },
   {
     level: 6, name: 'Supreme Visionary', joiningFee: 160, teamSize: 8, uplineCommission: 32, systemFee: 2, levelCommission: 16, slotFee: 110, totalCollection: 880, memberProfit: 800, leaderPool: 24, rewardPool: 12, sponsorPool: 4, roi: 500, flushoutDays: 60,
-    theme: { primary: '#6366f1', secondary: '#4f46e5', glow: 'rgba(99, 102, 241, 0.5)', bgGlow: 'rgba(99, 102, 241, 0.15)', text: '#e0e7ff' },
+    theme: { primary: '#f97316', secondary: '#ea580c', glow: 'rgba(249, 115, 22, 0.5)', bgGlow: 'rgba(249, 115, 22, 0.15)', text: '#ffedd5' },
   },
 ];
 
