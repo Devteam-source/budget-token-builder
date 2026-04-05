@@ -891,8 +891,43 @@ const Dashboard = () => {
                     <p className="text-[10px] text-slate-400">Special offers coming soon</p>
                   </div>
                 </div>
-                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Coming Soon</span>
+              {/* Course button - small, deep green */}
+              <div className="flex justify-start">
+                <button onClick={() => setSubView('courses')} className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-bold text-white" style={{ background: '#166534' }}>
+                  <GraduationCap className="h-3.5 w-3.5" /> Courses
+                </button>
               </div>
+              {/* Balance Card */}
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] text-slate-400">Available Balance</p>
+                  <p className="text-2xl font-bold text-emerald-400">${balance.toLocaleString()}</p>
+                </div>
+                <Wallet className="h-8 w-8 text-cyan-400/40" />
+              </div>
+              {/* Action Buttons - 3 buttons: Plan (deep golden), Withdrawal (deep blue), Portfolio (deep silver) */}
+              <div className="grid grid-cols-3 gap-2">
+                <button onClick={() => setActiveTab('plans')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #92750c, #b8960f)', boxShadow: '0 0 12px rgba(184,150,15,0.3)' }}>
+                  <Layers className="h-5 w-5" /><span>Plans</span>
+                </button>
+                <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #1e3a5f, #1e40af)', boxShadow: '0 0 12px rgba(30,64,175,0.3)' }}>
+                  <ArrowUpRight className="h-5 w-5" /><span>Withdrawal</span>
+                </button>
+                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #6b7280, #9ca3af)', boxShadow: '0 0 12px rgba(156,163,175,0.3)' }}>
+                  <Info className="h-5 w-5" /><span>Portfolio</span>
+                </button>
+              </div>
+              {/* PROMO Banner - Redeem Code */}
+              <button onClick={() => setShowPromoModal(true)} className="w-full rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-purple-400" />
+                  <div className="text-left">
+                    <p className="text-xs font-bold text-white">PROMO</p>
+                    <p className="text-[10px] text-slate-400">Redeem your gift code</p>
+                  </div>
+                </div>
+                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Redeem</span>
+              </button>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <PoolStatsCard />
                 <ReferralNetworkCard />
@@ -901,7 +936,26 @@ const Dashboard = () => {
               <PlanMaturityCard />
               <SkillLevelsCard />
               <ComingSoonCard title="Daily Income Plan" description="Earn Daily Rewards Based on Your Activity" icon={TrendingUp} />
-              <ComingSoonCard title="Earning Workspace" description="Freelance marketplace like Fiverr/Upwork — earn by doing tasks" icon={Layers} />
+              {/* Earning Workspace - Sky Blue */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(56,189,248,0.2)', background: 'linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(14,165,233,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
+                <div className="absolute right-3 top-3"><span className="inline-flex items-center gap-1 rounded-full border border-sky-400/25 bg-sky-500/12 px-2 py-1 text-[9px] font-bold text-sky-300"><TrendingUp className="h-2.5 w-2.5" />Coming Soon</span></div>
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-400" />
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.15), rgba(14,165,233,0.08))', border: '1px solid rgba(56,189,248,0.25)' }}>
+                    <Layers className="h-5 w-5 sm:h-7 sm:w-7 text-sky-300" />
+                  </div>
+                  <div className="pr-16">
+                    <h3 className="text-lg sm:text-2xl font-bold text-white">Earning Workspace</h3>
+                    <p className="text-xs text-slate-400">Freelance marketplace like Fiverr/Upwork — earn by doing tasks</p>
+                  </div>
+                </div>
+                <div className="rounded-lg border border-sky-500/10 bg-sky-500/5 p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/10"><Clock className="h-4 w-4 text-sky-400" /></div>
+                    <div><p className="text-xs text-sky-200">Stay Tuned</p><p className="text-[10px] text-slate-400">Feature under development</p></div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           )}
 
