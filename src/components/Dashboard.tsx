@@ -799,8 +799,22 @@ const DetailsPageContent = () => (
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'plans' | 'network' | 'rewards'>('overview');
   const [menuOpen, setMenuOpen] = useState(false);
-  const [subView, setSubView] = useState<'none' | 'details' | 'withdrawal' | 'refer'>('none');
+  const [subView, setSubView] = useState<'none' | 'details' | 'withdrawal' | 'refer' | 'courses'>('none');
+  const [showPromoModal, setShowPromoModal] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const [promoResult, setPromoResult] = useState<'none' | 'success' | 'claimed'>('none');
   const balance = 2580.5;
+
+  const handlePromoRedeem = () => {
+    if (!promoCode.trim()) return;
+    // Simulate redeem - always success for demo
+    if (promoCode.toUpperCase() === 'USED') {
+      setPromoResult('claimed');
+    } else {
+      setPromoResult('success');
+    }
+    setTimeout(() => { setPromoResult('none'); setPromoCode(''); setShowPromoModal(false); }, 3000);
+  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-200">
