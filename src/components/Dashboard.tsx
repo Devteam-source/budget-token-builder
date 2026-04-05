@@ -1009,6 +1009,55 @@ const Dashboard = () => {
         </AnimatePresence>
         )}
       </main>
+
+      {/* Promo Redeem Modal */}
+      <AnimatePresence>
+        {showPromoModal && (
+          <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => { setShowPromoModal(false); setPromoResult('none'); setPromoCode(''); }} className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" />
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="w-full max-w-sm rounded-2xl border border-purple-500/20 bg-[#0a0a0f] p-6" style={{ boxShadow: '0 0 40px rgba(139,92,246,0.15)' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-white">Redeem Gift Code</h3>
+                  <button onClick={() => { setShowPromoModal(false); setPromoResult('none'); setPromoCode(''); }} className="text-slate-400 hover:text-white"><X className="h-5 w-5" /></button>
+                </div>
+                {promoResult === 'none' ? (
+                  <>
+                    <input
+                      type="text"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                      placeholder="Enter your gift code"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-purple-500/40 mb-4"
+                    />
+                    <button
+                      onClick={handlePromoRedeem}
+                      disabled={!promoCode.trim()}
+                      className="w-full rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 py-3 text-sm font-bold text-white disabled:opacity-50"
+                    >
+                      Redeem Code
+                    </button>
+                  </>
+                ) : promoResult === 'success' ? (
+                  <div className="flex flex-col items-center gap-3 py-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600">
+                      <Check className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-sm font-bold text-emerald-400">Gift Code will be credited!</p>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-3 py-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-rose-600">
+                      <X className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-sm font-bold text-rose-400">Already Claimed</p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
