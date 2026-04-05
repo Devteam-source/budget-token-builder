@@ -66,11 +66,11 @@ export const plansData: PlanData[] = [
   },
   {
     level: 5, name: 'Quantum Leader', joiningFee: 80, teamSize: 8, uplineCommission: 14, systemFee: 2, levelCommission: 8, slotFee: 56, totalCollection: 448, memberProfit: 400, leaderPool: 16, rewardPool: 10, sponsorPool: 2, roi: 500, flushoutDays: 40,
-    theme: { primary: '#f97316', secondary: '#ea580c', glow: 'rgba(249, 115, 22, 0.5)', bgGlow: 'rgba(249, 115, 22, 0.15)', text: '#ffedd5' },
+    theme: { primary: '#6366f1', secondary: '#4f46e5', glow: 'rgba(99, 102, 241, 0.5)', bgGlow: 'rgba(99, 102, 241, 0.15)', text: '#e0e7ff' },
   },
   {
     level: 6, name: 'Supreme Visionary', joiningFee: 160, teamSize: 8, uplineCommission: 32, systemFee: 2, levelCommission: 16, slotFee: 110, totalCollection: 880, memberProfit: 800, leaderPool: 24, rewardPool: 12, sponsorPool: 4, roi: 500, flushoutDays: 60,
-    theme: { primary: '#6366f1', secondary: '#4f46e5', glow: 'rgba(99, 102, 241, 0.5)', bgGlow: 'rgba(99, 102, 241, 0.15)', text: '#e0e7ff' },
+    theme: { primary: '#f97316', secondary: '#ea580c', glow: 'rgba(249, 115, 22, 0.5)', bgGlow: 'rgba(249, 115, 22, 0.15)', text: '#ffedd5' },
   },
 ];
 
@@ -287,30 +287,67 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
 // =============================================
 // LEVEL COMMISSION CARD
 // =============================================
-const LevelCommissionCard = () => (
-  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(139,92,246,0.2)', background: 'linear-gradient(135deg, rgba(139,92,246,0.06) 0%, rgba(168,85,247,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
-    <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400" />
-    <div className="mb-4 flex items-start gap-3">
-      <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(168,85,247,0.08))', border: '1px solid rgba(139,92,246,0.25)' }}>
-        <Network className="h-5 w-5 sm:h-7 sm:w-7 text-violet-300" />
-      </div>
-      <div>
-        <p className="text-[10px] text-violet-300">Multi-Level Commission</p>
-        <h3 className="text-lg sm:text-2xl font-bold text-white">Level Commission</h3>
-        <p className="text-xs text-slate-400">7 Levels • 10% Total</p>
-      </div>
-    </div>
-    <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-      {levelCommissions.map((c, i) => (
-        <div key={i} className="relative rounded-lg border border-white/5 bg-white/[0.03] p-2 text-center">
-          <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400" />
-          <p className="text-[9px] text-slate-500">L{c.level}</p>
-          <p className="text-base sm:text-xl font-bold text-violet-300">{c.percentage}%</p>
+const LevelCommissionCard = () => {
+  // Sample total earnings per level
+  const earnings = [5, 3, 1.5, 1, 0.8, 0.5, 0.3];
+  const maxEarn = Math.max(...earnings);
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(139,92,246,0.2)', background: 'linear-gradient(135deg, rgba(139,92,246,0.06) 0%, rgba(168,85,247,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400" />
+      <div className="mb-4 flex items-start gap-3">
+        <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(168,85,247,0.08))', border: '1px solid rgba(139,92,246,0.25)' }}>
+          <Network className="h-5 w-5 sm:h-7 sm:w-7 text-violet-300" />
         </div>
-      ))}
-    </div>
-  </motion.div>
-);
+        <div>
+          <p className="text-[10px] text-violet-300">Multi-Level Commission</p>
+          <h3 className="text-lg sm:text-2xl font-bold text-white">Level Commission</h3>
+          <p className="text-xs text-slate-400">7 Levels • 10% Total</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+        {levelCommissions.map((c, i) => (
+          <div key={i} className="relative rounded-lg border border-white/5 bg-white/[0.03] p-2 text-center">
+            <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400" />
+            <p className="text-[9px] text-slate-500">L{c.level}</p>
+            <p className="text-base sm:text-xl font-bold text-violet-300">{c.percentage}%</p>
+          </div>
+        ))}
+      </div>
+      {/* Curvy line chart with total earn */}
+      <div className="mt-4 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+        <p className="text-[10px] text-slate-500 mb-2">Total Earn per Level</p>
+        <div className="relative h-20">
+          <svg viewBox="0 0 280 80" className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="commGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#8b5cf6" />
+                <stop offset="100%" stopColor="#c084fc" />
+              </linearGradient>
+              <linearGradient id="commFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d={`M${earnings.map((e, i) => `${i * 40 + 20},${75 - (e / maxEarn) * 60}`).join(' L')}`}
+              fill="none" stroke="url(#commGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <path
+              d={`M20,75 L${earnings.map((e, i) => `${i * 40 + 20},${75 - (e / maxEarn) * 60}`).join(' L')} L${(earnings.length - 1) * 40 + 20},75 Z`}
+              fill="url(#commFill)"
+            />
+            {earnings.map((e, i) => (
+              <g key={i}>
+                <circle cx={i * 40 + 20} cy={75 - (e / maxEarn) * 60} r="3" fill="#8b5cf6" stroke="#0a0a0f" strokeWidth="1.5" />
+                <text x={i * 40 + 20} y={75 - (e / maxEarn) * 60 - 8} textAnchor="middle" fill="#c4b5fd" fontSize="8" fontWeight="bold">${e}</text>
+              </g>
+            ))}
+          </svg>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 // =============================================
 // SKILL LEVELS CARD
@@ -762,8 +799,22 @@ const DetailsPageContent = () => (
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'plans' | 'network' | 'rewards'>('overview');
   const [menuOpen, setMenuOpen] = useState(false);
-  const [subView, setSubView] = useState<'none' | 'details' | 'withdrawal' | 'refer'>('none');
+  const [subView, setSubView] = useState<'none' | 'details' | 'withdrawal' | 'refer' | 'courses'>('none');
+  const [showPromoModal, setShowPromoModal] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const [promoResult, setPromoResult] = useState<'none' | 'success' | 'claimed'>('none');
   const balance = 2580.5;
+
+  const handlePromoRedeem = () => {
+    if (!promoCode.trim()) return;
+    // Simulate redeem - always success for demo
+    if (promoCode.toUpperCase() === 'USED') {
+      setPromoResult('claimed');
+    } else {
+      setPromoResult('success');
+    }
+    setTimeout(() => { setPromoResult('none'); setPromoCode(''); setShowPromoModal(false); }, 3000);
+  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-200">
@@ -803,16 +854,19 @@ const Dashboard = () => {
                 {subView === 'details' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500"><Info className="h-5 w-5 text-white" /></div>}
                 {subView === 'withdrawal' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/30"><ArrowUpRight className="h-5 w-5 text-white" /></div>}
                 {subView === 'refer' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-500"><Share2 className="h-5 w-5 text-white" /></div>}
+                {subView === 'courses' && <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: '#166534' }}><GraduationCap className="h-5 w-5 text-white" /></div>}
                 <div>
                   <h2 className="text-lg font-bold text-white">
                     {subView === 'details' && 'Portfolio'}
                     {subView === 'withdrawal' && 'Withdraw'}
                     {subView === 'refer' && 'Refer & Earn'}
+                    {subView === 'courses' && 'Skill Courses'}
                   </h2>
                   <p className="text-xs text-slate-400">
                     {subView === 'details' && 'Your portfolio'}
                     {subView === 'withdrawal' && `Available: $${balance.toLocaleString()}`}
                     {subView === 'refer' && 'Share with friends'}
+                    {subView === 'courses' && '7 Skill Levels to Master'}
                   </p>
                 </div>
               </div>
@@ -821,6 +875,7 @@ const Dashboard = () => {
             {subView === 'details' && <DetailsPageContent />}
             {subView === 'withdrawal' && <WithdrawalPageContent balance={balance} />}
             {subView === 'refer' && <ReferPageContent />}
+            {subView === 'courses' && <SkillLevelsCard />}
           </motion.div>
         ) : (
         <AnimatePresence mode="wait">
@@ -838,24 +893,43 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              {/* Action Buttons */}
-              <div className="grid grid-cols-4 gap-2">
-                <button onClick={() => setActiveTab('plans')} className="flex flex-col items-center gap-1.5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 py-3 text-xs text-yellow-200 hover:bg-yellow-500/20"><Layers className="h-5 w-5 text-yellow-400" /><span className="font-bold">Plans</span></button>
-                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20"><Info className="h-5 w-5 text-amber-400" /><span className="font-bold">Portfolio</span></button>
-                <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-600/30 bg-blue-900/40 py-3 text-xs text-slate-300 hover:bg-blue-800/50"><ArrowUpRight className="h-5 w-5 text-cyan-400" /><span>Withdrawal</span></button>
-                <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20"><GraduationCap className="h-5 w-5 text-emerald-400" /><span className="font-bold">Courses</span></button>
+              {/* Course button - small, deep green */}
+              <div className="flex justify-start">
+                <button onClick={() => setSubView('courses')} className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-bold text-white" style={{ background: '#166534' }}>
+                  <GraduationCap className="h-3.5 w-3.5" /> Courses
+                </button>
               </div>
-              {/* PROMO Banner */}
-              <div className="rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
+              {/* Balance Card */}
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] text-slate-400">Available Balance</p>
+                  <p className="text-2xl font-bold text-emerald-400">${balance.toLocaleString()}</p>
+                </div>
+                <Wallet className="h-8 w-8 text-cyan-400/40" />
+              </div>
+              {/* Action Buttons - 3 buttons: Plan (deep golden), Withdrawal (deep blue), Portfolio (deep silver) */}
+              <div className="grid grid-cols-3 gap-2">
+                <button onClick={() => setActiveTab('plans')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #92750c, #b8960f)', boxShadow: '0 0 12px rgba(184,150,15,0.3)' }}>
+                  <Layers className="h-5 w-5" /><span>Plans</span>
+                </button>
+                <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #1e3a5f, #1e40af)', boxShadow: '0 0 12px rgba(30,64,175,0.3)' }}>
+                  <ArrowUpRight className="h-5 w-5" /><span>Withdrawal</span>
+                </button>
+                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #6b7280, #9ca3af)', boxShadow: '0 0 12px rgba(156,163,175,0.3)' }}>
+                  <Info className="h-5 w-5" /><span>Portfolio</span>
+                </button>
+              </div>
+              {/* PROMO Banner - Redeem Code */}
+              <button onClick={() => setShowPromoModal(true)} className="w-full rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Zap className="h-5 w-5 text-purple-400" />
-                  <div>
+                  <div className="text-left">
                     <p className="text-xs font-bold text-white">PROMO</p>
-                    <p className="text-[10px] text-slate-400">Special offers coming soon</p>
+                    <p className="text-[10px] text-slate-400">Redeem your gift code</p>
                   </div>
                 </div>
-                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Coming Soon</span>
-              </div>
+                <span className="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-2 py-1 rounded-full border border-purple-400/20">Redeem</span>
+              </button>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <PoolStatsCard />
                 <ReferralNetworkCard />
@@ -864,13 +938,32 @@ const Dashboard = () => {
               <PlanMaturityCard />
               <SkillLevelsCard />
               <ComingSoonCard title="Daily Income Plan" description="Earn Daily Rewards Based on Your Activity" icon={TrendingUp} />
-              <ComingSoonCard title="Earning Workspace" description="Freelance marketplace like Fiverr/Upwork — earn by doing tasks" icon={Layers} />
+              {/* Earning Workspace - Sky Blue */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(56,189,248,0.2)', background: 'linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(14,165,233,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
+                <div className="absolute right-3 top-3"><span className="inline-flex items-center gap-1 rounded-full border border-sky-400/25 bg-sky-500/12 px-2 py-1 text-[9px] font-bold text-sky-300"><TrendingUp className="h-2.5 w-2.5" />Coming Soon</span></div>
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-400" />
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.15), rgba(14,165,233,0.08))', border: '1px solid rgba(56,189,248,0.25)' }}>
+                    <Layers className="h-5 w-5 sm:h-7 sm:w-7 text-sky-300" />
+                  </div>
+                  <div className="pr-16">
+                    <h3 className="text-lg sm:text-2xl font-bold text-white">Earning Workspace</h3>
+                    <p className="text-xs text-slate-400">Freelance marketplace like Fiverr/Upwork — earn by doing tasks</p>
+                  </div>
+                </div>
+                <div className="rounded-lg border border-sky-500/10 bg-sky-500/5 p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/10"><Clock className="h-4 w-4 text-sky-400" /></div>
+                    <div><p className="text-xs text-sky-200">Stay Tuned</p><p className="text-[10px] text-slate-400">Feature under development</p></div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           )}
 
           {activeTab === 'plans' && (
             <motion.div key="plans" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-4">
-              <div><h1 className="text-xl font-bold text-white">Earning & Learning Programs</h1><p className="text-xs text-slate-400">Choose a program that fits your goals</p></div>
+              <div><h1 className="text-xl font-bold text-white">Earning & Learning Programmes</h1><p className="text-xs text-slate-400">Choose a programme that fits your goals</p></div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">{plansData.map((plan, i) => <PremiumPlanCard key={plan.level} plan={plan} index={i} />)}</div>
               <FlushoutScheduleCard />
             </motion.div>
@@ -916,6 +1009,55 @@ const Dashboard = () => {
         </AnimatePresence>
         )}
       </main>
+
+      {/* Promo Redeem Modal */}
+      <AnimatePresence>
+        {showPromoModal && (
+          <>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => { setShowPromoModal(false); setPromoResult('none'); setPromoCode(''); }} className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" />
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="w-full max-w-sm rounded-2xl border border-purple-500/20 bg-[#0a0a0f] p-6" style={{ boxShadow: '0 0 40px rgba(139,92,246,0.15)' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-white">Redeem Gift Code</h3>
+                  <button onClick={() => { setShowPromoModal(false); setPromoResult('none'); setPromoCode(''); }} className="text-slate-400 hover:text-white"><X className="h-5 w-5" /></button>
+                </div>
+                {promoResult === 'none' ? (
+                  <>
+                    <input
+                      type="text"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                      placeholder="Enter your gift code"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-purple-500/40 mb-4"
+                    />
+                    <button
+                      onClick={handlePromoRedeem}
+                      disabled={!promoCode.trim()}
+                      className="w-full rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 py-3 text-sm font-bold text-white disabled:opacity-50"
+                    >
+                      Redeem Code
+                    </button>
+                  </>
+                ) : promoResult === 'success' ? (
+                  <div className="flex flex-col items-center gap-3 py-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600">
+                      <Check className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-sm font-bold text-emerald-400">Gift Code will be credited!</p>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-3 py-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-rose-600">
+                      <X className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-sm font-bold text-rose-400">Already Claimed</p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
