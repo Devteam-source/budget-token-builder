@@ -854,16 +854,19 @@ const Dashboard = () => {
                 {subView === 'details' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500"><Info className="h-5 w-5 text-white" /></div>}
                 {subView === 'withdrawal' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/30"><ArrowUpRight className="h-5 w-5 text-white" /></div>}
                 {subView === 'refer' && <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-500"><Share2 className="h-5 w-5 text-white" /></div>}
+                {subView === 'courses' && <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: '#166534' }}><GraduationCap className="h-5 w-5 text-white" /></div>}
                 <div>
                   <h2 className="text-lg font-bold text-white">
                     {subView === 'details' && 'Portfolio'}
                     {subView === 'withdrawal' && 'Withdraw'}
                     {subView === 'refer' && 'Refer & Earn'}
+                    {subView === 'courses' && 'Skill Courses'}
                   </h2>
                   <p className="text-xs text-slate-400">
                     {subView === 'details' && 'Your portfolio'}
                     {subView === 'withdrawal' && `Available: $${balance.toLocaleString()}`}
                     {subView === 'refer' && 'Share with friends'}
+                    {subView === 'courses' && '7 Skill Levels to Master'}
                   </p>
                 </div>
               </div>
@@ -872,6 +875,7 @@ const Dashboard = () => {
             {subView === 'details' && <DetailsPageContent />}
             {subView === 'withdrawal' && <WithdrawalPageContent balance={balance} />}
             {subView === 'refer' && <ReferPageContent />}
+            {subView === 'courses' && <SkillLevelsCard />}
           </motion.div>
         ) : (
         <AnimatePresence mode="wait">
