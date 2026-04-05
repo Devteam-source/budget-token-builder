@@ -287,30 +287,67 @@ const PremiumPlanCard = ({ plan, index, onSelect }: any) => {
 // =============================================
 // LEVEL COMMISSION CARD
 // =============================================
-const LevelCommissionCard = () => (
-  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(139,92,246,0.2)', background: 'linear-gradient(135deg, rgba(139,92,246,0.06) 0%, rgba(168,85,247,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
-    <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400" />
-    <div className="mb-4 flex items-start gap-3">
-      <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(168,85,247,0.08))', border: '1px solid rgba(139,92,246,0.25)' }}>
-        <Network className="h-5 w-5 sm:h-7 sm:w-7 text-violet-300" />
-      </div>
-      <div>
-        <p className="text-[10px] text-violet-300">Multi-Level Commission</p>
-        <h3 className="text-lg sm:text-2xl font-bold text-white">Level Commission</h3>
-        <p className="text-xs text-slate-400">7 Levels • 10% Total</p>
-      </div>
-    </div>
-    <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-      {levelCommissions.map((c, i) => (
-        <div key={i} className="relative rounded-lg border border-white/5 bg-white/[0.03] p-2 text-center">
-          <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400" />
-          <p className="text-[9px] text-slate-500">L{c.level}</p>
-          <p className="text-base sm:text-xl font-bold text-violet-300">{c.percentage}%</p>
+const LevelCommissionCard = () => {
+  // Sample total earnings per level
+  const earnings = [5, 3, 1.5, 1, 0.8, 0.5, 0.3];
+  const maxEarn = Math.max(...earnings);
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-2xl sm:rounded-3xl border p-4 sm:p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(139,92,246,0.2)', background: 'linear-gradient(135deg, rgba(139,92,246,0.06) 0%, rgba(168,85,247,0.03) 50%, rgba(0,0,0,0.2) 100%)' }}>
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400" />
+      <div className="mb-4 flex items-start gap-3">
+        <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(168,85,247,0.08))', border: '1px solid rgba(139,92,246,0.25)' }}>
+          <Network className="h-5 w-5 sm:h-7 sm:w-7 text-violet-300" />
         </div>
-      ))}
-    </div>
-  </motion.div>
-);
+        <div>
+          <p className="text-[10px] text-violet-300">Multi-Level Commission</p>
+          <h3 className="text-lg sm:text-2xl font-bold text-white">Level Commission</h3>
+          <p className="text-xs text-slate-400">7 Levels • 10% Total</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+        {levelCommissions.map((c, i) => (
+          <div key={i} className="relative rounded-lg border border-white/5 bg-white/[0.03] p-2 text-center">
+            <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400" />
+            <p className="text-[9px] text-slate-500">L{c.level}</p>
+            <p className="text-base sm:text-xl font-bold text-violet-300">{c.percentage}%</p>
+          </div>
+        ))}
+      </div>
+      {/* Curvy line chart with total earn */}
+      <div className="mt-4 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+        <p className="text-[10px] text-slate-500 mb-2">Total Earn per Level</p>
+        <div className="relative h-20">
+          <svg viewBox="0 0 280 80" className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="commGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#8b5cf6" />
+                <stop offset="100%" stopColor="#c084fc" />
+              </linearGradient>
+              <linearGradient id="commFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d={`M${earnings.map((e, i) => `${i * 40 + 20},${75 - (e / maxEarn) * 60}`).join(' L')}`}
+              fill="none" stroke="url(#commGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <path
+              d={`M20,75 L${earnings.map((e, i) => `${i * 40 + 20},${75 - (e / maxEarn) * 60}`).join(' L')} L${(earnings.length - 1) * 40 + 20},75 Z`}
+              fill="url(#commFill)"
+            />
+            {earnings.map((e, i) => (
+              <g key={i}>
+                <circle cx={i * 40 + 20} cy={75 - (e / maxEarn) * 60} r="3" fill="#8b5cf6" stroke="#0a0a0f" strokeWidth="1.5" />
+                <text x={i * 40 + 20} y={75 - (e / maxEarn) * 60 - 8} textAnchor="middle" fill="#c4b5fd" fontSize="8" fontWeight="bold">${e}</text>
+              </g>
+            ))}
+          </svg>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 // =============================================
 // SKILL LEVELS CARD
