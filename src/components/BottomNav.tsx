@@ -10,7 +10,7 @@ interface BottomNavProps {
 }
 
 const navItems: { id: PanelId; label: string; icon: React.ElementType; gradient: string }[] = [
-  { id: 'dashboard', label: 'Hub', icon: LayoutDashboard, gradient: 'from-cyan-400 via-blue-500 to-purple-600' },
+  { id: 'dashboard', label: 'Earn', icon: LayoutDashboard, gradient: 'from-cyan-400 via-blue-500 to-purple-600' },
   { id: 'edtech', label: 'Learn', icon: GraduationCap, gradient: 'from-emerald-400 via-teal-500 to-cyan-600' },
   { id: 'aitools', label: 'AI Tools', icon: Sparkles, gradient: 'from-violet-400 via-purple-500 to-fuchsia-600' },
   { id: 'community', label: 'Lounge', icon: MessageCircle, gradient: 'from-amber-400 via-orange-500 to-pink-600' },
@@ -25,7 +25,6 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
         background: 'linear-gradient(180deg, rgba(10,10,20,0) 0%, rgba(5,5,10,0.6) 40%, rgba(2,2,5,0.98) 100%)',
       }}
     >
-      {/* Ambient Glow Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div 
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[100px] opacity-30 blur-[80px]"
@@ -35,7 +34,6 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
         />
       </div>
 
-      {/* Glass Container - Reduced padding to bring it closer to bottom */}
       <div 
         className="relative mx-auto w-full max-w-lg px-3 pb-3 pt-1"
         style={{
@@ -43,7 +41,6 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
         }}
       >
-        {/* Floating Pill Container - Made thinner (p-1 instead of p-2) */}
         <div 
           className="relative flex items-center justify-between rounded-[1.5rem] p-1.5"
           style={{
@@ -65,49 +62,27 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                // Reduced height to h-12/14 for a thinner look
                 className="group relative flex flex-col items-center justify-center flex-1 h-[3.25rem] outline-none"
               >
-                {/* Active Liquid Background */}
                 {isActive && (
                   <motion.div
                     layoutId="premium-active-bg"
                     className={`absolute inset-0.5 rounded-xl bg-gradient-to-br ${item.gradient} opacity-15`}
                     initial={false}
-                    transition={{ 
-                      type: 'spring', 
-                      stiffness: 400, 
-                      damping: 35,
-                      mass: 1.2
-                    }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 35, mass: 1.2 }}
                     style={{
-                      boxShadow: `
-                        0 0 30px -10px rgba(99,102,241,0.5),
-                        inset 0 1px 2px rgba(255,255,255,0.2),
-                        inset 0 -1px 2px rgba(0,0,0,0.1)
-                      `
+                      boxShadow: `0 0 30px -10px rgba(99,102,241,0.5), inset 0 1px 2px rgba(255,255,255,0.2), inset 0 -1px 2px rgba(0,0,0,0.1)`
                     }}
                   >
-                    {/* Animated gradient overlay */}
                     <motion.div
                       className="absolute inset-0 rounded-xl opacity-40"
-                      style={{
-                        background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)',
-                        backgroundSize: '200% 200%',
-                      }}
-                      animate={{
-                        backgroundPosition: ['200% 200%', '-200% -200%'],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: 'linear'
-                      }}
+                      style={{ background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)', backgroundSize: '200% 200%' }}
+                      animate={{ backgroundPosition: ['200% 200%', '-200% -200%'] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
                     />
                   </motion.div>
                 )}
 
-                {/* Glowing Orb Behind Icon */}
                 {isActive && (
                   <motion.div
                     layoutId="glowing-orb"
@@ -116,17 +91,9 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
                   />
                 )}
 
-                {/* Icon Container with Floating Effect */}
                 <motion.div
-                  animate={{ 
-                    y: isActive ? -3 : 0,
-                    scale: isActive ? 1.15 : 1,
-                  }}
-                  transition={{ 
-                    type: 'spring', 
-                    stiffness: 400, 
-                    damping: 25 
-                  }}
+                  animate={{ y: isActive ? -3 : 0, scale: isActive ? 1.15 : 1 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                   className="relative z-10"
                 >
                   <div className="relative flex items-center justify-center">
@@ -138,27 +105,19 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
                           : 'text-slate-400 group-hover:text-slate-200 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
                       }`}
                     />
-                    {/* Inner Glow Dot */}
                     {isActive && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r ${item.gradient}`}
-                        style={{
-                          boxShadow: `0 0 8px 1px rgba(255,255,255,0.8)`
-                        }}
+                        style={{ boxShadow: `0 0 8px 1px rgba(255,255,255,0.8)` }}
                       />
                     )}
                   </div>
                 </motion.div>
                 
-                {/* Label with Glow */}
                 <motion.span
-                  animate={{ 
-                    opacity: isActive ? 1 : 0.6,
-                    y: isActive ? 0 : 2,
-                    scale: isActive ? 1.05 : 1
-                  }}
+                  animate={{ opacity: isActive ? 1 : 0.6, y: isActive ? 0 : 2, scale: isActive ? 1.05 : 1 }}
                   className={`relative z-10 mt-1.5 text-[9px] font-bold tracking-[0.05em] uppercase transition-all duration-300 ${
                     isActive 
                       ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]' 
@@ -168,7 +127,6 @@ const BottomNav: React.FC<BottomNavProps> = ({ activePanel, onNavigate }) => {
                   {item.label}
                 </motion.span>
 
-                {/* Hover Glow Effect (for inactive) */}
                 {!isActive && (
                   <div className="absolute inset-0 rounded-xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
                 )}
