@@ -875,22 +875,6 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              {/* Action Buttons */}
-              <div className="grid grid-cols-4 gap-2">
-                <button onClick={() => setActiveTab('plans')} className="flex flex-col items-center gap-1.5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 py-3 text-xs text-yellow-200 hover:bg-yellow-500/20"><Layers className="h-5 w-5 text-yellow-400" /><span className="font-bold">Plans</span></button>
-                <button onClick={() => setSubView('details')} className="flex flex-col items-center gap-1.5 rounded-xl border border-amber-500/30 bg-amber-500/10 py-3 text-xs text-amber-200 hover:bg-amber-500/20"><Info className="h-5 w-5 text-amber-400" /><span className="font-bold">Portfolio</span></button>
-                <button onClick={() => setSubView('withdrawal')} className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-600/30 bg-blue-900/40 py-3 text-xs text-slate-300 hover:bg-blue-800/50"><ArrowUpRight className="h-5 w-5 text-cyan-400" /><span>Withdrawal</span></button>
-                <button className="flex flex-col items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-xs text-emerald-200 hover:bg-emerald-500/20"><GraduationCap className="h-5 w-5 text-emerald-400" /><span className="font-bold">Courses</span></button>
-              </div>
-              {/* PROMO Banner */}
-              <div className="rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-purple-400" />
-                  <div>
-                    <p className="text-xs font-bold text-white">PROMO</p>
-                    <p className="text-[10px] text-slate-400">Special offers coming soon</p>
-                  </div>
-                </div>
               {/* Course button - small, deep green */}
               <div className="flex justify-start">
                 <button onClick={() => setSubView('courses')} className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-bold text-white" style={{ background: '#166534' }}>
